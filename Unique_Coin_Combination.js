@@ -18,7 +18,20 @@ function getCoins(value) {
     }
     value = nilai
   }
-  if (arr.length > 1) {
+  if (value <= coin[coin.length-1]) {
+    let tampung = []
+    for (let i = coin.length-1; i >= 0; i--) {
+      if (value >= coin[i]) {
+        value -= coin[i]
+        tampung.push(coin[i])
+      }
+    }
+    if (value == 0) {
+      arr.push(tampung)
+    }
+  }
+
+  if (arr.length > 0) {
     console.log(arr);
   } else {
     console.log('-1');
@@ -26,7 +39,7 @@ function getCoins(value) {
 
 }
 
-getCoins(12)
+getCoins(11)
 // [1, 11]
 // [5, 7]
 
